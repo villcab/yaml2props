@@ -6,6 +6,10 @@ Simple script for convert YAML to Properties file for Spring application configu
 
 - Python 2.7+
 
+## Dependencies
+- sudo apt install python3-pip
+- pip3 install pyperclip
+
 ## How to use
 
 ```
