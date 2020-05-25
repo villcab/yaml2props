@@ -40,7 +40,7 @@ for line in lines:
     
     if index is 0:
         prop = []
-        prop.append(result_prop.group().strip())
+        prop.append('--' + result_prop.group().strip())
     else:
         prop_name = result_prop.group(0).strip()
 
@@ -52,7 +52,7 @@ for line in lines:
     value = re.search(r'(?<=:).+', line)
 
     if value and value.group().strip():
-        p = '.'.join(prop) + ' = ' + value.group().strip() + '\n'
+        p = '.'.join(prop) + "='" + value.group().strip() + "' \\\n"
         output += p
 
 # Prepare write file
