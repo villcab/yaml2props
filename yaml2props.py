@@ -8,10 +8,12 @@ parser = argparse.ArgumentParser(
     description='Simple script for convert YAML to Properties file format.'
 )
 parser.add_argument('file', help='Path of YAML file')
+parser.add_argument('output_dir', help='Path to output props file')
 
 args = parser.parse_args()
 
-print('YAML File : %s' % args.file)
+print('YAML File: %s' % args.file)
+print('Output Dir: %s' % args.output_dir)
 
 if not os.path.isfile(args.file):
     raise ValueError(args.file + ' is not file')
@@ -38,7 +40,7 @@ for line in lines:
 
     result_prop = re.search(r'.+(?=:\s)', line)
     
-    if index is 0:
+    if index == 0:
         prop = []
         prop.append('--' + result_prop.group().strip())
     else:
@@ -57,15 +59,19 @@ for line in lines:
 
 # Prepare write file
 splited_name = args.file.split(".")
-file_path = ''.join(splited_name[:len(splited_name) - 1]) + '.properties'
+splited_name2 = splited_name[0].split("/")
+fileName = splited_name2[len(splited_name2) - 1]
+
+#file_path = ''.join(splited_name[:len(splited_name) - 1]) + '.properties'
+file_path = args.output_dir + fileName + '.properties'
 
 # For debug output
 #print(output) 
 
-print('\nSave to file : ' + file_path)
+print('Save to File: ' + file_path)
  
  # Write file
-file_props = open(file_path,'w+')
+file_props = open(file_path, 'w+')
 file_props.write(output)
 file_props.close()
 
