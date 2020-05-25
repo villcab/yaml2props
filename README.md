@@ -11,15 +11,10 @@ Simple script for convert YAML to Properties file for Spring application configu
     pip3 install pyperclip
 
 ## Install
-```
-$ sudo cp yaml2props.sh /usr/local/bin
-$ sudo chmod 755 /usr/local/bin/yaml2props.sh
-```
+    sudo cp yaml2props.sh /usr/local/bin
+    sudo chmod 755 /usr/local/bin/yaml2props.sh
 
 ## How to use
-
-```
-$ yaml2props {your_path_file} {your_output_dir}
-```
+    yaml2props {your_path_file} {your_output_dir}
 
 You can try with _sample.yaml_ as example file.
